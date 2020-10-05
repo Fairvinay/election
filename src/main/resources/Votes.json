@@ -1,0 +1,17 @@
+{ "votes" : [
+
+      { "voteid" : "1" , "votecadidateid" : "12" , "votezone": "kharadi"},
+      { "voteid" : "2" , "votecadidateid" : "11" , "votezone": "magarpatta"},
+      { "voteid" : "3" , "votecadidateid" : "21" , "votezone": "magarpatta"},
+      { "voteid" : "4" , "votecadidateid" : "13" , "votezone": "kharadi"},
+      { "voteid" : "5" , "votecadidateid" : "13" , "votezone": "kharadi"},
+      { "voteid" : "6" , "votecadidateid" : "21" , "votezone": "magarpatta"},
+      { "voteid" : "7" , "votecadidateid" : "22" , "votezone": "magarpatta"}
+   ]
+}
+
+
+
+
+
+

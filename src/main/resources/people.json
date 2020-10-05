@@ -1,0 +1,28 @@
+[
+    {
+        "people": {
+            "name": "Lokesh",
+            "voteZone": "Kharadi"
+           
+        }
+    },
+    {
+        "people": {
+            "name": "Brian",
+            "voteZone": "Maggarpatta"
+        }
+    },
+    {
+        "people": {
+            "name": "Lokesh",
+            "voteZone": "Kharadi"
+           
+        }
+    },
+    {
+        "people": {
+            "name": "PAssri",
+            "voteZone": "Maggarpatta"
+        }
+    }
+]

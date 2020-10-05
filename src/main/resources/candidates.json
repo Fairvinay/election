@@ -1,0 +1,20 @@
+[
+   	{ "candidate" : 
+   	  {"cadidateid": "12", "firstname": "Prita" , "surname" : "Kelkar" ,  "birthdate"  : "18-02-1995",   "votezone": "Kharadi"}
+    },
+    { "candidate" :
+    { "cadidateid": "13", "candidatename": "Madhyam", "surname" : "Prlhad" ,  "birthdate"  : "25-04-1999", "votezone": "Maggarpatta"}
+    },
+    { "candidate" :
+     { "cadidateid": "21", "candidatename": "Vardahan" , "surname" : "Samule" ,  "birthdate"  : "10-02-2001",  "votezone": "Maggarpatta"}
+     },
+    { "candidate" :
+     { "cadidateid": "11", "candidatename": "Dhamar", "surname" : "Kelkar" ,  "birthdate"  : "10-05-1994", "votezone": "Kharadi"}
+     },
+    { "candidate" :
+      { "cadidateid": "22", "candidatename": "Samarth", "surname" : "Venkat" ,  "birthdate"  : "1-01-1996", "votezone": "Kharadi"}
+      }
+    
+  ]
+
+
