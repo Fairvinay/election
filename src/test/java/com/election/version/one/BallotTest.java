@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
@@ -16,14 +16,17 @@ import com.election.version.one.service.VoteService;
 
 @RunWith(SpringRunner.class)
 @ActiveProfiles("test")
-@SpringBootTest
+//@SpringBootTest
+// http://zetcode.com/springboot/testentitymanager/
 @ContextConfiguration(classes=com.election.version.one.config.TestConfig.class)
 @TestPropertySource(locations= "classpath:application-test.properties")
 @DataJpaTest
 public class BallotTest {
 
     
-
+	 @Autowired
+	    private TestEntityManager entityManager;
+	
      @Autowired
      private VoteService voteService;
 

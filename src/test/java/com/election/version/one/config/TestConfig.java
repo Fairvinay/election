@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -15,8 +16,9 @@ import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.election.version.one.repository")
-@PropertySource("application-test.properties")
+@ComponentScan(basePackages = {"com.election.version"})
+@EnableJpaRepositories(basePackages = "")
+@PropertySource("classpath:application-test.properties")
 
 public class TestConfig {
 
@@ -35,7 +37,8 @@ public class TestConfig {
 		dataSource.setUrl(env.getProperty("jdbc.url"));
 		dataSource.setUsername(env.getProperty("jdbc.user"));
 		dataSource.setPassword(env.getProperty("jdbc.pass"));
-		
+		dataSource.setPassword(env.getProperty("jdbc.database-platform"));
+		System.out.println(" TestConfig dataSource called ");
 		//dataSource.set
 		return dataSource;
 	}
@@ -54,6 +57,8 @@ public class TestConfig {
 	     populator.setCommentPrefix("--");
 	     populator.addScript(new ClassPathResource("schema.sql"));
 	     populator.addScript(new ClassPathResource("data.sql"));
+	     System.out.println(" TestConfig databasePopulator called ");
 	     return populator;
 	 }
+	 
 }
