@@ -61,7 +61,7 @@ public class Register {
 		
 		canArray.forEach(c -> { CandidateResponse cr = new CandidateResponse();
 				    cr.cadidateid = c.getCadidateid();
-				    cr.birthdate = c.getBirthdate();
+				    cr.birthdate = c.getBirthdate().toString();
 				    cr.firstname = c.getFirstname();
 				    cr.surname = c.getSurname();
 				    cr.votezone  = c.getVotezone();

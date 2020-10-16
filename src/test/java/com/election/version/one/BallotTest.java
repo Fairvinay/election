@@ -2,6 +2,7 @@ package com.election.version.one;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,20 +30,51 @@ public class BallotTest {
 	
      @Autowired
      private VoteService voteService;
+     
+     @Before
+     public void setUp() {
+    	 
+    	 final String email = "test@test.io";
+         String votecandidateid = "2";
+         String  voteid = "1";
+         String votezone ="Kharadi"; 
+         String name = "Tejas";
+         boolean vote  = voteService.checkVoteAlreadyDone(votecandidateid ,voteid,votezone,name);  // <-- We get an exception in here...
+         
+     }
 
      @Test
      public void addNewVote() {
          System.out.println("addNewVote()...");  // <-- This prints in the console
          final String email = "test@test.io";
          String votecandidateid = "2";
-         String  voteid = "1";
+         String  voteid = "2";
          String votezone ="Kharadi"; 
-         String name = "Tejas";
+         String name = "Rajehs";
          boolean vote  = voteService.castVote(votecandidateid ,voteid,votezone,name);  // <-- We get an exception in here...
          
          assertThat(vote).isTrue();
          
-         
-         
      }  
+     @Test
+     public void testDuplicateVote() {
+    	 
+    	 System.out.println("testDuplicateVote()...");  // <-- This prints in the console
+         final String email = "test@test.io";
+         String votecandidateid = "2";
+         String  voteid = "1";
+         String votezone ="Kharadi"; 
+         String name = "Tejas";
+         boolean vote  = voteService.checkVoteAlreadyDone(votecandidateid ,voteid,votezone,name);  // <-- We get an exception in here...
+         
+         assertThat(vote).isTrue();
+     }
+     
+     
+     
+     
+     
+     
+     
+     
 }

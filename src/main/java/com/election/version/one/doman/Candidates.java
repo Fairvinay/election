@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,12 @@ public class Candidates {
             System.out.println(candidateList);
              
             //Iterate over candidate array
-            candidateList.forEach( candidate -> { candidates.add(parseCandidate( (JSONObject) candidate )); } );
+            candidateList.forEach( candidate -> { try {
+				candidates.add(parseCandidate( (JSONObject) candidate ));
+			} catch (java.text.ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} } );
  
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -49,7 +55,7 @@ public class Candidates {
 		return candidates;  
 	}
 	
-	private static Candidate parseCandidate(JSONObject candiate) 
+	private static Candidate parseCandidate(JSONObject candiate) throws java.text.ParseException 
     {
         //Get candidate object within list
         JSONObject candiateObject = (JSONObject) candiate.get("candidate");
@@ -79,7 +85,7 @@ public class Candidates {
         
         Candidate nCand = new Candidate();
         
-        nCand.setBirthdate(birthdate);
+        nCand.setBirthdate(new java.sql.Date(new SimpleDateFormat("dd-MM-YYYY").parse(birthdate).getTime()));
         nCand.setCadidateid(Integer.parseInt(cadidateid));
         nCand.setFirstname(firstname);
         nCand.setSurname(surname);

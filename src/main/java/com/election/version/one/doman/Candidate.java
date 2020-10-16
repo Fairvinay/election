@@ -1,5 +1,9 @@
 package com.election.version.one.doman;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,13 +20,31 @@ public class Candidate {
 	@Column(name = "SURNAME")
 	String surname;
 	@Column(name = "BIRTHDATE")
-	String birthdate;
+	Date birthdate;
 	@Column(name = "VOTEZONE")
 	String votezone;
 	@Column (name="SYMBOL")
 	String symbol;
 	
-     
+     @SuppressWarnings("deprecation")
+	public Candidate() {
+    	 
+    	 this.birthdate =new Date(10,10,1970); 
+ 		this.cadidateid = 0;
+ 		this.firstname = "";
+ 		this.surname = "";
+ 		this.symbol = "";
+ 		this.votezone = "";
+     }
+	public Candidate(String string, String string2, String string3, String string4, String string5, String string6) throws ParseException {
+		this.birthdate = new Date(new SimpleDateFormat("dd-MM-YYYY").parse(string).getTime()); 
+		this.cadidateid = Integer.parseInt(string2);
+		this.firstname = string3;
+		this.surname = string4;
+		this.symbol = string5;
+		this.votezone = string6;
+	}
+
 	public String getSymbol() {
 		return symbol;
 	}
@@ -55,12 +77,12 @@ public class Candidate {
 		this.surname = surname;
 	}
 
-	public String getBirthdate() {
+	public Date getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
+	public void setBirthdate(Date birthdate) {
+		this.birthdate =  birthdate;
 	}
 
 	public String getVotezone() {
