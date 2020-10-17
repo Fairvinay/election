@@ -79,10 +79,14 @@ public class DuplicateCandidateTest {
          
         List <Candidate> cdList = candService.getAllCandidate() ;
         // <-- We get an exception in here...
+      
         
-        cdList.sort(Comparator.comparing(i-> ((Candidate)i).getFirstname()).thenComparing(i-> ((Candidate)i).getSurname())
+        cdList.sort(Comparator.comparing(i->
+        	
+        	     ((Candidate)i).getFirstname()).thenComparing(i-> ((Candidate)i).getSurname())
         		.thenComparing(i-> ((Candidate)i).getBirthdate()).thenComparing(i-> ((Candidate)i).getVotezone())
-        		
+                  
+                  
         		);
          
         assertTrue(cdList.size() > 1);

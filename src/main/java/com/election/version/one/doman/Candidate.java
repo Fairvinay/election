@@ -92,5 +92,10 @@ public class Candidate {
 	public void setVotezone(String votezone) {
 		this.votezone = votezone;
 	}
+	
+	public String toString() {
+		
+		return "Candidate " + getCadidateid() + " "+ getFirstname() +" "+ getSurname() +" "+getBirthdate() + " "+getVotezone() ;
+	}
 
 }
